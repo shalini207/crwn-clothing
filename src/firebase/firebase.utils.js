@@ -2,7 +2,8 @@ import firebase from "firebase/app";
 
 import "firebase/auth";
 import "firebase/firestore";
-import { useRef } from "react";
+import "firebase/database";
+// import { userRef } from "react";
 
 const config = {
   apiKey: "AIzaSyA5chCrvbIpUGKdOXjWUWEl6XX1XN3EqOE",
@@ -39,9 +40,10 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 firebase.initializeApp(config);
 
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+const auth = firebase.auth();
+const firestore = firebase.firestore();
 
+export { auth, firestore };
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
