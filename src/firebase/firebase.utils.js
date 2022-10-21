@@ -1,9 +1,9 @@
-import firebase from "firebase/app";
+import firebase from "firebase/compat/app";
 
-import "firebase/auth";
-import "firebase/firestore";
-import "firebase/database";
-// import { userRef } from "react";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+
+
 
 const config = {
   apiKey: "AIzaSyA5chCrvbIpUGKdOXjWUWEl6XX1XN3EqOE",
@@ -12,7 +12,7 @@ const config = {
   storageBucket: "crwn-db-e4970.appspot.com",
   messagingSenderId: "747112774461",
   appId: "1:747112774461:web:4898e54a4980710fc66354",
-  measurementId: "G-PFLK0201KB",
+  measurementId: "G-PFLK0201KB"
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -40,10 +40,10 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 firebase.initializeApp(config);
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
 
-export { auth, firestore };
+
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
