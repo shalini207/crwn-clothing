@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-//hi there
 
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
@@ -9,10 +8,12 @@ import HomePage from "./pages/homepage/homepage.components";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import Checkout from "./pages/checkout/checkout.components";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 
+ 
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
@@ -28,9 +29,9 @@ class App extends React.Component {
             ...snapShot.data(),
           });
         });
-      } else {
+      } 
         setCurrentUser(userAuth);
-      }
+      
     });
   }
 
@@ -44,6 +45,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
+          <Route exact path="/checkout" component={Checkout} />
+
           <Route
             exact
             path="/signin"
