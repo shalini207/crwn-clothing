@@ -24,3 +24,4 @@ export const selectCartTotal = createSelector([selectCartItems], (cartItems) =>
     0
   )
 );
+
