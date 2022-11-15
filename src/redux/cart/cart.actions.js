@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 import CartActionTypes from "./cart.types";
 
 export const toggleCartHidden = () => ({
@@ -17,4 +18,8 @@ export const removeItem = (item) => ({
 export const clearItemFromCart = (item) => ({
   type: CartActionTypes.CLEAR_ITEM_FROM_CART,
   payload: item,
+});
+
+export const clearCart = () => ({
+  type: CartActionTypes.CLEAR_CART,
 });
