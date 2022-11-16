@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 import {HeaderContainer, LogoContainer,OptionsContainer, OptionLink} from './header.styles'
 
-import { auth } from "../../firebase/firebase.utils";
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import { signOutStart } from "../../redux/user/user.actions";
